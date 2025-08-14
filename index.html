@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nayash Shrestha ko Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body {background-color:#ffffff;color:#333;line-height:1.6;scroll-behavior:smooth;}
+    a {text-decoration:none;color:inherit;}
+    img {max-width:100%;border-radius:50%;}
+
+    
+    nav {
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 10;
+      left: 10;
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .nav-logo {font-weight:700;font-size:1.5rem;color:#3498db;}
+    .nav-links {list-style:none;display:flex;gap:20px;}
+    .nav-links li a {font-weight:600;color:#333;transition:color 0.3s;}
+    .nav-links li a:hover {color:#3498db;}
+
+   
+    .container {max-width:900px;margin:auto;padding:120px 20px 50px;}
+
+    
+    header {text-align:center;padding:40px 0;}
+    header h1 {font-size:2.5rem;margin-bottom:10px;}
+    header p {font-size:1.1rem;color:#555;}
+    .profile-pic {width:150px;height:150px;margin:20px auto;display:block;}
+
+   
+    section {margin:50px 0;}
+    section h2 {
+      font-size:1.8rem;margin-bottom:20px;
+      border-bottom:2px solid #3498db;
+      display:inline-block;padding-bottom:5px;
+    }
+    ul.skills {list-style-type:square;margin-left:20px;}
+
+   
+    form {display:flex;flex-direction:column;gap:15px;}
+    form input, form textarea {
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:1rem;
+      width:100%;
+    }
+    form button {
+      padding:10px;
+      border:none;
+      border-radius:5px;
+      background-color:#3498db;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {background-color:#2980b9;}
+    .contact-info p {margin:5px 0;}
+    .social-links a {margin-right:15px;font-weight:bold;color:#3498db;}
+
+    
+    footer {text-align:center;padding:20px 0;color:#777;font-size:0.9rem;border-top:1px solid #ddd;margin-top:50px;}
+
+    
+    @media(max-width:600px){
+      .nav-links {flex-direction:column;gap:10px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">Nayash Shrestha</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    
+    <header id="about">
+      <img src="WhatsApp Image 2025-08-14 at 08.48.10_4515087a.jpg" alt="Profile Picture" class="profile-pic">
+      <h1>Nayash Shrestha</h1>
+      <p>Enthusiastic IT Student | Web Developer | Graphic Designer</p>
+    </header>
+
+   
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>HTML, CSS, JavaScript for web development</li>
+        <li>Graphic design and UI/UX basics</li>
+        <li>Basic programming concepts and problem-solving</li>
+        <li>Quick learner of new tools and technologies</li>
+      </ul>
+    </section>
+
+    <section id="slider">
+  <h2>Some pictures</h2>
+  <div class="slider">
+    <img src="work1.jpg" alt="Work 1">
+    <img src="work2.jpg" alt="Work 2">
+    <img src="work3.jpg" alt="Work 3">
+    <img src="work4.jpg" alt="Work 4">
+    <img src="work5.jpg" alt="Work 5">
+    <img src="work6.jpg" alt="Work 6">
+    <img src="photo1.jpg" alt="Work 7">
+    <img src="photo2.jpg" alt="Work 8">
+    <img src="photo3.jpg" alt="Work 9">
+    <img src="photo3.jpg" alt="Work 10">  
+    <img src="work1.jpg" alt="Work 11">
+    <img src="work2.jpg" alt="Work 12">
+    <img src="work3.jpg" alt="Work 13">
+    <img src="work4.jpg" alt="Work 14">
+    <img src="work5.jpg" alt="Work 15">
+    <img src="work6.jpg" alt="Work 16">
+    <img src="photo1.jpg" alt="Work 17">
+    <img src="photo2.jpg" alt="Work 18">
+    <img src="photo3.jpg" alt="Work 19">
+    <img src="photo3.jpg" alt="Work 20">  
+    <img src="work1.jpg" alt="Work 21">
+    <img src="work2.jpg" alt="Work 22">
+    <img src="work3.jpg" alt="Work 23">
+    <img src="work4.jpg" alt="Work 24">
+    <img src="work5.jpg" alt="Work 25">
+    <img src="work6.jpg" alt="Work 26">
+   
+
+  </div>
+
+</section>
+
+<style>
+  /* Slider Styles */
+  #slider {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .slider {
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+  }
+  .slider img {
+    width: 100%;
+    display: none;
+    border-radius: 10px;
+  }
+  .slider img.active {
+    display: block;
+  }
+
+ 
+
+</style>
+
+<script>
+  // Simple Slider Script
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slider img");
+
+  function showSlide(index) {
+    slides.forEach((img, i) => img.classList.toggle("active", i === index));
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Start slider
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000); // change every 3 sec
+</script>
+
+
+    
+    <section id="projects">
+      <h2>Projects / Work</h2>
+      <p>I have worked on small web projects where I designed and developed simple websites using HTML, CSS, and JavaScript. Additionally, I have created digital graphics for personal projects and learning exercises, combining both design and coding skills to produce user-friendly interfaces.</p>
+    </section>
+
+   
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-info">
+        <p>Email: nayashstha098@gmail.com</p>
+        <p>Phone: 9845179892</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/nayash-shrestha-h-34347b356/">LinkedIn</a> <br>
+        <a href="https://www.instagram.com/nayash______8/?hl=en#" >Instagram</a><br><br>
+        <h1>If you have any questions :</h1><br>
+
+      </div>
+
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p id="formStatus" style="color:green;margin-top:10px;"></p>
+    </section>
+
+  </div>
+
+
+
+ 
+  
+
+  <script>
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      
+      formStatus.textContent = "Thank you! Your message has been sent.";
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

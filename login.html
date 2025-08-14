@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaeaea;
+        }
+
+        .auth-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .auth-tabs button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .auth-form {
+            margin-top: 20px;
+        }
+
+        .auth-form input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .auth-form button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .notification {
+            margin-top: 20px;
+            padding: 10px;
+            display: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <button id="show-login">Login</button>
+            <button id="show-signup">Signup</button>
+        </div>
+
+        <!-- 🔐 Login Form -->
+        <div id="login-form" class="auth-form">
+            <h2>Login</h2>
+            <input type="text" id="login-email" placeholder="Email or Username" required />
+            <input type="password" id="login-password" placeholder="Password" required />
+            <button id="login-btn">Login</button>
+        </div>
+
+        <!-- 📝 Signup Form -->
+        <div id="signup-form" class="auth-form hidden">
+            <h2>Signup</h2>
+            <input type="text" id="signup-username" placeholder="Username" required />
+            <input type="email" id="signup-email" placeholder="Email" required />
+            <input type="password" id="signup-password" placeholder="Password" required />
+            <input type="password" id="signup-confirm" placeholder="Confirm Password" required />
+            <button id="signup-btn">Signup</button>
+        </div>
+
+        <!-- 🔔 Notification -->
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script>
+        // Toggle between login and signup
+        document.getElementById("show-login").onclick = () => {
+            document.getElementById("login-form").classList.remove("hidden");
+            document.getElementById("signup-form").classList.add("hidden");
+        };
+        document.getElementById("show-signup").onclick = () => {
+            document.getElementById("signup-form").classList.remove("hidden");
+            document.getElementById("login-form").classList.add("hidden");
+        };
+
+        // Notification function
+        function showNotification(message, type) {
+            const note = document.getElementById("notification");
+            note.innerText = message;
+            note.style.display = "block";
+            note.style.backgroundColor = type === "success" ? "#4CAF50" : "#f44336";
+            setTimeout(() => { note.style.display = "none"; }, 3000);
+        }
+
+        // ✅ Signup logic
+        document.getElementById("signup-btn").addEventListener("click", () => {
+            const username = document.getElementById("signup-username").value.trim();
+            const email = document.getElementById("signup-email").value.trim();
+            const password = document.getElementById("signup-password").value;
+            const confirm = document.getElementById("signup-confirm").value;
+
+            // Improved email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                showNotification("❌ Invalid email format", "error");
+                return;
+            }
+
+            // Password length check
+            if (password.length < 8 || password.length > 20) {
+                showNotification("❌ Password must be 8–20 characters long", "error");
+                return;
+            }
+
+            // Password complexity check
+            const passwordPattern = /^(?=.[A-Za-z])(?=.\d)(?=.*[@$!%#?&]).+$/;
+            if (!passwordPattern.test(password)) {
+                showNotification("❌ Password must include letters, numbers, and symbols", "error");
+                return;
+            }
+
+            if (password !== confirm) {
+                showNotification("❌ Passwords do not match", "error");
+                return;
+            }
+
+            localStorage.setItem("user", JSON.stringify({ username, email, password }));
+            localStorage.removeItem("loggedIn");
+
+            showNotification("✅ Congratulations! You've successfully registered.", "success");
+
+            setTimeout(() => {
+                document.getElementById("show-login").click(); // Switch to login tab
+            }, 2000);
+        });
+
+        // ✅ Login logic
+        document.getElementById("login-btn").addEventListener("click", () => {
+            const emailOrUser = document.getElementById("login-email").value.trim();
+            const password = document.getElementById("login-password").value;
+            const storedUser = JSON.parse(localStorage.getItem("user"));
+
+            if (!storedUser) {
+                showNotification("❌ No account found. Please register first.", "error");
+                return;
+            }
+
+            if ((emailOrUser === storedUser.email || emailOrUser === storedUser.username) && password === storedUser.password) {
+                localStorage.setItem("loggedIn", "true");
+                showNotification("✅ Login successful! Redirecting...", "success");
+                setTimeout(() => {
+                    window.location.href = "index.html"; // Replace with your actual dashboard page
+                }, 1500);
+            } else {
+                showNotification("❌ Incorrect email/username or password", "error");
+            }
+        });
+    </script>
+</body>
+
+</html>
+
